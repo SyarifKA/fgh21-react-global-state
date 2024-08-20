@@ -9,8 +9,13 @@ const initialState = {
     initialState,
     reducers: {
       listData: (state, action) => {
-        state.dataList = [...state.dataList, ...action.payload]
-      },
+            // state.dataList = [...state.dataList, ...action.payload]
+            state.dataList = state.dataList.length > 0? state.dataList:[...state.dataList, ...action.payload]
+        },
+        // deleteData: (state, action) => {
+        //     const result = state.filter((dataList)=>dataList.id !== action.payload)
+        // state.dataList = result
+        // }
     },
   });
 

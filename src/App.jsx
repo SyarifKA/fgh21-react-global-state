@@ -17,9 +17,12 @@ function TableData() {
     dispatch(listData(dataUser))
   }
 
+  getName()
+  // function deleteItem(index) {
+  //   dispatch(dataRemove(index));
+  // }
+
   return (
-    <div className='flex flex-col gap-2'>
-      <button onClick={getName} className='bg-green-500 w-[50%] text-white font-semibold py-2'>Show Data</button>
     <table className='border border-black w-[50%]'>
       <thead className='border border-black bg-blue-500'>
         <tr className='border border-black'>
@@ -28,13 +31,13 @@ function TableData() {
           <th className='border border-black'>Options</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className='border border-black text-sm'>
         {data.map((item) => {
           return (
             <tr className='border border-black'>
-            <td className='px-4 border-black'>{item.name}</td>
-              <td className='px-4 border-black'>{item.email}</td>
-              <td className='flex gap-2 items-center border-black px-4 justify-center'>
+            <td className='px-4 border border-black'>{item.name}</td>
+              <td className='px-4 border border-black'>{item.email}</td>
+              <td className='flex gap-2 py-4 items-center border-black px-4 justify-center'>
                 <button><TiEdit /></button>
                 <button><RiDeleteBin6Fill /></button>
             </td>
@@ -43,12 +46,10 @@ function TableData() {
         })}
       </tbody>
     </table>
-    </div>
   )
 }
 
 function App() {
-
   return (
     <Provider store={store}>
       <TableData />
